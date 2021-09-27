@@ -1,14 +1,18 @@
 import React from 'react';
 import './header.styles.scss';
+import {connect} from 'react-redux';
 
-const Header = ()=> (
+const Header = ({currentTexts})=> (
     <div className ='header'>
         <div className =' options'>
-            <span>Buying an iPad Mini?</span>
+            <span>{currentTexts.title}</span>
             <button>hide</button>
         </div>
     </div>
 
 );
+const mapStateToProps = (state ) => ({
+    currentTexts :state.text.currentTexts,
+   })
 
-export default Header; 
+   export default connect (mapStateToProps) (Header); 

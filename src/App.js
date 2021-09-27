@@ -9,7 +9,7 @@ import {
 import HomePage from './pages/homepage/homepage.component';
 import Header from './components/header/header.component';
 import StoragePage from './pages/storagepage/storage.component';
-import Footer from './components/footer/footer.component';
+
 
 
 function App() {
@@ -23,12 +23,13 @@ function App() {
       <Route  path ='/storage' component = {StoragePage}/>
       
       </Switch>
-     <Footer/>
+     
       
      
     </div>
    
   );
 }
+
 
 export default App;

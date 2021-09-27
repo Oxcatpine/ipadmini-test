@@ -1,12 +1,27 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {
+    Link
+   
+  } from "react-router-dom";
 
-const StoragePage = () => (
+const StoragePage = ({currentTexts}) => (
     <div>
-        <h2>How Much Storage Do I Need?</h2>
+        <h2> {currentTexts.content[1].title}</h2>
         <span>
-        If you're trying to decide which of the options – 16GB, 32GB, and 64GB – is right for you, you need to think about how you plan to use your iPad Mini. If you already have a host of other gadgets, such as the standard size iPad or an iPhone, then the 16GB may be all you need for a sturdy, reliable, on-the-go tablet. The more you plan to do with your tablet, and the more apps you plan to download, the more storage you'll need.
+        {currentTexts.content[1].description}
         </span>
+        <div className ='header'>
+       
+       <Link className='option' to ='/'>{currentTexts.content[0].title}</Link>
+       <Link 
+       className='option' to ='/storage'> {currentTexts.content[2].title}</Link>
+       
+       </div>
     </div>
 );
+const mapStateToProps = (state ) => ({
+    currentTexts :state.text.currentTexts,
+   })
 
-export default StoragePage
+   export default connect (mapStateToProps) (StoragePage)
